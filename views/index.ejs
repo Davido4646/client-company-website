@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+
+  <style>
+
+/* Set global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #8A2BE2;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header .menu ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: fixed;
+  right: 2%;
+  top: 30px;
+}
+
+header .menu li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+header .menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header .menu a:hover {
+  color: #ffc107;
+}
+
+/* Style the hero section */
+.hero {
+  background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJhY2tncm91bmQlMjBpbWFnZSUyMGZvciUyMGNvbXBhbnklMjB3ZWJzaXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero .button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #8A2BE2;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .button:hover {
+  background-color: goldenrod;
+}
+
+/* Style the about section */
+.about {
+  padding: 50px;
+  background-color: #eee;
+}
+
+.about img {
+position: relative;
+left: 30%;
+}
+
+.about h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Style the services section */
+.services {
+  padding: 50px;
+  background-color: #f8f8f8;
+}
+
+.services h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0;
+  max-width: 1170px;
+  margin-bottom: -200px;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+
+
+
+
+.projects-text {
+  width: 85vw;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+.project {
+  position: relative;
+  background: rgb(230, 179, 52);
+  margin-bottom: 2rem;
+  border-radius: 5%;
+}
+.project-info {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+  opacity: 0;
+}
+.project-info p {
+  text-transform: capitalize;
+  color: var(--clr-white);
+}
+.project:hover .project-info {
+  opacity: 1;
+}
+.project-img {
+  height: 15rem;
+  border-radius: 5%;
+}
+.project:hover .project-img {
+  opacity: 0.1;
+}
+.project::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 97%;
+  height: 100%;
+  border: 0.25rem solid #fff;
+  opacity: 0;
+}
+.project:hover::after {
+  opacity: 1;
+  transform: scale(0.8);
+  border-radius: 5%;
+}
+@media screen and (min-width: 676px) {
+  .projects-center {
+    display: grid;
+  }
+}
+@media screen and (min-width: 992px) {
+  .projects-center {
+    grid-template-columns: repeat(4);
+  }
+}
+@media screen and (min-width: 1170px) {
+  .projects-center {
+    grid-template-rows: 200px 200px;
+    gap: 1rem;
+    grid-template-areas:
+      "a b c d";
+  }
+  .project-img {
+    height: 100%;
+  }
+  .project {
+    height: 100%;
+  }
+  .project-1 {
+    grid-area: a;
+  }
+  .project-2 {
+    grid-area: b;
+  }
+  .project-3 {
+    grid-area: c;
+  }
+  .project-4 {
+    grid-area: d;
+  }
+}
+
+
+
+/* Style the contact section */
+.contact {
+  padding: 50px;
+  background-color: #eee;
+}
+
+.contact label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact input[type="tel"],
+.contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.contact button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+/* Style the footer */
+footer {
+background-color: #333;
+color: #fff;
+padding: 20px;
+text-align: center;
+}
+
+footer p {
+margin: 0;
+font-size: 1.2rem;
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="/">My Company</a></div>
+      <div class="menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to My Company</h1>
+      <p>We are a leading provider of high-quality products and services.</p>
+      <a href="#contact" class="button">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YWJvdXQlMjB1c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+    <p>At our company, we take pride in being a leading provider of high-quality products and services. Our goal is to provide our customers with top-notch solutions that meet their needs and exceed their expectations. With years of experience in our industry, we have honed our expertise and have become known for our commitment to excellence.
+    </p>   
+    <p>Our products and services are designed to meet a wide range of needs, from large-scale commercial projects to individual home installations. We take great care to ensure that every product and service we offer is of the highest quality, and we use only the best materials and technologies to create them.
+        At our company, we believe that our success is closely tied to the success of our customers. That's why we are committed to providing solutions that are tailored to your unique needs and challenges.
+    </p>
+</section>
+<section class="services" id="services">
+  <h2>Our Services</h2>
+
+
+  <div class="section-center projects-center">
+    <!-- single project -->
+      <article class="project">
+        <img
+          src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHJvamVjdCUyMGRldmVsb3BlbWVudCUyMGFuZCUyMGRlc2lnbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="single project"
+          class="project-img project-1"
+        />
+        <div class="project-info">
+          <h4>Product Developement And Design</h4>
+        </div>
+      </article>
+    <!-- end of single project -->
+    <!-- single project -->
+      <article class="project">
+        <img
+          src="https://images.unsplash.com/photo-1639980430320-e97db37f167c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnVmYWN0dXJpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          alt="single project"
+          class="project-img project-2"
+        />
+        <div class="project-info">
+          <h4>Manufacturing</h4>
+        </div>
+      </article>
+    <!-- end of single project --><!-- single project -->
+      <article class="project">
+        <img
+          src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29uc3VsdGFuY3l8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          alt="single project"
+          class="project-img project-3"
+        />
+        <div class="project-info">
+          <h4>Consultancy Services</h4>
+        </div>
+      </article>
+    <!-- end of single project --><!-- single project -->
+      <article class="project">
+        <img
+          src="https://images.unsplash.com/photo-1604071334368-bb3cb256180b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aW5zdGFsbGF0aW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="single project"
+          class="project-img project-4"
+        />
+        <div class="project-info">
+          <h4>Installation And Maintenance</h4>
+        </div>
+      </article>
+    <!-- end of single project -->
+  </div>
+
+
+</section>
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <form action="/contact" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="button">Send</button>
+  </form>
+</section>
+<footer>
+  <p>&copy; 2023 My Company. All rights reserved.</p>
+</footer>
+</body>
+</html>
